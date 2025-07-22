@@ -1,95 +1,66 @@
-import Image from "next/image";
-import styles from "./page.module.css";
+import { Button } from "@/components/ui/button"
+import Link from "next/link";
 
 export default function Home() {
   return (
-    <div className={styles.page}>
-      <main className={styles.main}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol>
-          <li>
-            Get started by editing <code>src/app/page.tsx</code>.
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
-
-        <div className={styles.ctas}>
-          <a
-            className={styles.primary}
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className={styles.logo}
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-            className={styles.secondary}
-          >
-            Read our docs
-          </a>
+    <div className="min-h-screen bg-gradient-to-r from-blue-500 to-purple-600 p-8">
+      <div className="max-w-4xl mx-auto">
+        <h1 className="text-4xl font-bold text-white mb-8">Welcome to Sherpa</h1>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div className="bg-white rounded-lg shadow-lg p-6">
+            <h2 className="text-2xl font-semibold text-gray-800 mb-4">Transcript Analysis</h2>
+            <p className="text-gray-600">
+              Upload your meeting transcripts and get AI-powered insights instantly.
+            </p>
+            <div className="mt-4 flex flex-col gap-2">
+              <Link href="/transcript/create" passHref>
+              <Button
+                variant="outline"
+                className="border border-indigo-500 text-indigo-600 hover:bg-indigo-50 hover:text-indigo-700 focus:ring-2 focus:ring-indigo-400 transition-colors duration-200 px-4 py-2 rounded-md w-full"
+              >
+                Go to transcript
+              </Button>
+              </Link>
+              <Button variant="outline" className="border border-indigo-500 text-indigo-600 hover:bg-indigo-50 hover:text-indigo-700 focus:ring-2 focus:ring-indigo-400 transition-colors duration-200 px-4 py-2 rounded-md">view all transcripts</Button>
+            </div>
+          </div>
+          <div className="bg-white rounded-lg shadow-lg p-6">
+            <h2 className="text-2xl font-semibold text-gray-800 mb-4">Icebreaker Generator</h2>
+            <p className="text-gray-600">
+              Generate personalized icebreakers for better business connections.
+            </p>
+            <div className="mt-4 flex flex-col gap-2">
+              <Link href="/icebreaker/create" passHref>
+              <Button
+                variant="outline"
+                className="border border-indigo-500 text-indigo-600 hover:bg-indigo-50 hover:text-indigo-700 focus:ring-2 focus:ring-indigo-400 transition-colors duration-200 px-4 py-2 rounded-md w-full"
+              >
+                Go to icebreaker
+              </Button>
+              </Link>
+              <Link href="/icebreaker" passHref>
+              <Button
+                variant="outline"
+                className="border border-indigo-500 text-indigo-600 hover:bg-indigo-50 hover:text-indigo-700 focus:ring-2 focus:ring-indigo-400 transition-colors duration-200 px-4 py-2 rounded-md w-full"
+              >
+                view all icebreaker
+              </Button>
+              </Link>
+            </div>
+          </div>
         </div>
-      </main>
-      <footer className={styles.footer}>
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
+      </div>
     </div>
   );
 }
+// import Link from "next/link";
+// export default function Home() {
+//   return (
+//     <div>
+//       <h1>Home</h1>
+//       <Link href="/icebreaker/create">Create Icebreaker</Link>
+//       <Link href="/transcript/create">Create Transcript</Link>
+//     </div>
+//   );
+// }
+
