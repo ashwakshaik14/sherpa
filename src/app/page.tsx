@@ -21,7 +21,14 @@ export default function Home() {
                 Go to transcript
               </Button>
               </Link>
-              <Button variant="outline" className="border border-indigo-500 text-indigo-600 hover:bg-indigo-50 hover:text-indigo-700 focus:ring-2 focus:ring-indigo-400 transition-colors duration-200 px-4 py-2 rounded-md">view all transcripts</Button>
+              <Link href="/transcript" passHref>
+              <Button
+                variant="outline"
+                className="border border-indigo-500 text-indigo-600 hover:bg-indigo-50 hover:text-indigo-700 focus:ring-2 focus:ring-indigo-400 transition-colors duration-200 px-4 py-2 rounded-md w-full"
+              >
+                View all transcript
+              </Button>
+              </Link>
             </div>
           </div>
           <div className="bg-white rounded-lg shadow-lg p-6">
