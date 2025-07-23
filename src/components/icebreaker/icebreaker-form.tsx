@@ -232,6 +232,7 @@ export function IcebreakerForm() {
               type="submit" 
               disabled={isLoading || ocrLoading || !formData.name || !formData.linkedin_bio}
               className="w-full"
+              variant="outline"
             >
               {isLoading ? (
                 <span className="flex items-center gap-2">
