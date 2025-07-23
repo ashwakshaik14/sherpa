@@ -19,7 +19,6 @@ export default function TranscriptPage() {
   });
 
   const [loading, setLoading] = useState(false);
-  const [result, setResult] = useState<string | null>(null);
   const [error, setError] = useState<string | null>(null);
 
   const handleChange = (
@@ -30,7 +29,6 @@ export default function TranscriptPage() {
 
   const handleSubmit = async () => {
     setLoading(true);
-    setResult(null);
     setError(null);
     try {
       const res = await TranscriptInsight(form);
@@ -95,12 +93,6 @@ export default function TranscriptPage() {
       </div>
 
       {error && <p className="text-red-500 mt-4">{error}</p>}
-
-      {result && (
-        <Card className="mt-6">
-          <CardContent className="p-4 whitespace-pre-wrap">{result}</CardContent>
-        </Card>
-      )}
     </div>
   );
 }
