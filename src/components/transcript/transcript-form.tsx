@@ -96,7 +96,6 @@
 
 
 
-
 "use client";
 
 import { useState } from "react";
@@ -121,7 +120,9 @@ export default function TranscriptPage() {
   const [result, setResult] = useState<string | null>(null);
   const [error, setError] = useState<string | null>(null);
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
     setForm({ ...form, [e.target.name]: e.target.value });
   };
 
@@ -133,20 +134,11 @@ export default function TranscriptPage() {
       const res = await TranscriptInsight(form);
       console.log(res);
       setResult(res.result); // result returned from FastAPI
-      
-      // Wait a bit for the backend to process
+
+      // Redirect with scroll flag
       setTimeout(() => {
-        // Redirect to transcript list
-        router.push("/transcript");
-        
-        setTimeout(() => {
-          window.scrollTo({
-            top: document.documentElement.scrollHeight,
-            behavior: 'smooth'
-          });
-        }, 500);
+        router.push("/transcript?scrollToBottom=true");
       }, 1000);
-      
     } catch (err: any) {
       setError(err.message);
     } finally {
@@ -161,12 +153,22 @@ export default function TranscriptPage() {
       <div className="space-y-4">
         <div className="space-y-1">
           <Label htmlFor="company">Company</Label>
-          <Input name="company" id="company" placeholder="Business Sherpa" onChange={handleChange} />
+          <Input
+            name="company"
+            id="company"
+            placeholder="Business Sherpa"
+            onChange={handleChange}
+          />
         </div>
 
         <div className="space-y-1">
           <Label htmlFor="attendees">Attendees</Label>
-          <Input name="attendees" id="attendees" placeholder="Ashwak, Vinayaka" onChange={handleChange} />
+          <Input
+            name="attendees"
+            id="attendees"
+            placeholder="Ashwak, Vinayaka"
+            onChange={handleChange}
+          />
         </div>
 
         <div className="space-y-1">
