@@ -87,7 +87,7 @@ export default function TranscriptPage() {
           />
         </div>
 
-        <Button onClick={handleSubmit} disabled={loading} variant="outline">
+        <Button onClick={handleSubmit} disabled={loading || !form.transcript || !form.company} variant="outline">
           {loading ? "Generating..." : "Generate Insight"}
         </Button>
       </div>
